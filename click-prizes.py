@@ -17,6 +17,6 @@ def click_newprizes():
 if sockes_num<800:
     click_prizes()
 else:
-    for i in range(1,int(sockes_num/800)):
+    for i in range(1,int(sockes_num/800)+1):
         click_newprizes()
         click_prizes()
