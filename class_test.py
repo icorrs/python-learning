@@ -26,6 +26,7 @@ def pow1(a,b):
 class Factorial:
     def __init__(self):
         self.cache = {}
+        
     def __call__(self, n):
         if n not in self.cache:
             if n == 0:
@@ -34,4 +35,26 @@ class Factorial:
                 self.cache[n] = n * self.__call__(n-1)
         return self.cache[n]
 
-print(__name__)
+    def ab(self,a,b):
+        return a+b*a
+
+class Singleton(object):
+    'singleton'
+    def __new__(cls):
+        if not hasattr(cls,'instance'):
+            cls.instance=super(Singleton,cls).__new__(cls)
+        return cls.instance
+
+class SingletonSon(Singleton):
+    def add(self,num):
+        return num+2
+
+
+class SingletonSon2(Singleton):
+    def add(self,num):
+        return num+3
+
+class SingletonFactory():
+    def add(self,object_type,num):
+        return object_type().add(num)
+        
