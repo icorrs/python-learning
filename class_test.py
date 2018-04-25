@@ -57,4 +57,6 @@ class SingletonSon2(Singleton):
 class SingletonFactory():
     def add(self,object_type,num):
         return object_type().add(num)
-        
+
+
+
