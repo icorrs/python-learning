@@ -24,7 +24,7 @@ def get_listmode():#get list mode to control if it is need to list the name of f
     else:
         return list_mode
 def count_lines(file):#count line number of file endswith .py;if not, return 0.
-    if file.endswith('.py'):
+    if file.endswith('.py') or file.endswith('.js'):
         f=open(file,'r',encoding='utf-8')
         lines=len(f.readlines())
         f.close()
@@ -46,7 +46,7 @@ def py_count():#main function
     list_mode=get_listmode()
     list_count=[]
     if os.path.isfile(path):#if the path entered is a file count line number of it
-        if os.path.splitext(os.path.split(path))[1]=='.py':
+        if os.path.splitext(os.path.split(path))[1] in ('.py','.js'):
             list_count.append((path,count_lines(path)))
             print('%s :%i'%(list_count[0][0],list_count[0][1]))
             print('total:%i'%(list_count[0][1]))
